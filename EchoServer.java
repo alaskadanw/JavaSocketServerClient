@@ -9,7 +9,6 @@ import java.net.Socket;
 
 public class EchoServer {
     private static final String USAGE_MESSAGE = "Usage: java EchoServer <port number>";
-    private static final String CLIENT_MESSAGE = "Hey, I've served %d clients!";
     private int clientCounter = 0;
     private int portNumber = 0;
 
@@ -37,7 +36,7 @@ public class EchoServer {
                  BufferedReader clientInput = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
                 System.out.println("Accepted client");
 
-                clientOutput.println("Hey, I've served %d clients! " + ++clientCounter); // send a message to client
+                clientOutput.println("Hey, I've served " + ++clientCounter + " clients! ); // send a message to client
                 System.out.println("Server sent message to client");
 
                 String receivedClientLine = clientInput.readLine(); // get a client message
