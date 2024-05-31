@@ -15,13 +15,12 @@ public class EchoClient {
     private String clientMsg;
 
     private EchoClient(String...  args) {
-        if (args.length == 1)
-            portNo = Integer.parseInt(args[0]);
-        else if (args.length == 2) {
-            portNo = Integer.parseInt(args[0]);
-            clientMsg = args[1];
-        } else
+        if (args.length != 1 && args.length != 2)
             System.err.println(USAGE_MESSAGE);
+        else {
+            portNo = Integer.parseInt(args[0]);
+            clientMsg = (args.length == 1) ? "Hey Server, I'm the client!" : args[2];
+        }
     }
 
     public static void main(String[] args) {
